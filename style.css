@@ -298,9 +298,9 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* IMPORTANT : Pour centrer le formulaire */
+    justify-content: center; /* IMPORTANT : Centrer horizontalement */
+    align-items: center; /* IMPORTANT : Centrer verticalement */
     z-index: 1000; /* S'assurer qu'il est au-dessus de tout */
 }
 
