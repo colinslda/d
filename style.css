@@ -447,73 +447,93 @@ footer {
 
 
 /* Styles pour optimiser l'affichage sur iPhone 14 */
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 428px) { /* Ciblage précis de l'iPhone 14 et écrans plus petits */
     header {
-        padding: 35px 0 25px;
-        margin-bottom: 40px;
+        padding: 30px 0 20px; /* Réduction du padding haut */
+        margin-bottom: 30px; /* Réduction de la marge basse */
     }
 
     header h1 {
-        font-size: 2.6em;
+        font-size: 2.4em; /* Légère réduction de la taille du titre */
     }
 
     .header-subtitle {
-        font-size: 1.2em;
+        font-size: 1.15em; /* Légère réduction de la taille du sous-titre */
     }
 
     main {
-        padding: 35px 30px;
-        border-radius: 25px;
-        margin-bottom: 50px;
+        padding: 25px 20px; /* Réduction du padding intérieur de main */
+        border-radius: 20px; /* Réduction légère du rayon de bordure de main */
+        margin-bottom: 40px; /* Réduction de la marge basse de main */
     }
 
     h2 {
-        font-size: 2em;
-        margin-bottom: 30px;
+        font-size: 1.9em; /* Légère réduction de la taille des titres H2 */
+        margin-bottom: 28px; /* Ajustement de la marge basse des H2 */
     }
 
     .rounded-button {
-        padding: 14px 35px;
-        font-size: 1.1em;
+        padding: 12px 28px; /* Réduction du padding des boutons */
+        font-size: 1.0em; /* Légère réduction de la taille de la police des boutons */
+        border-radius: 35px; /* Ajustement du rayon de bordure des boutons */
     }
 
     .input-group label {
-        font-size: 1.05em;
+        font-size: 1.0em; /* Légère réduction de la taille des labels */
+        margin-bottom: 8px; /* Réduction de la marge basse des labels */
     }
 
     .input-group input, .input-group select, .input-group textarea {
-        padding: 14px;
-        font-size: 1em;
+        padding: 12px; /* Réduction du padding des inputs */
+        font-size: 1.0em; /* Légère réduction de la taille de la police des inputs */
+        border-radius: 15px; /* Ajustement du rayon de bordure des inputs */
     }
 
     .autocomplete-items li {
-        font-size: 1em;
-        padding: 12px 14px;
+        font-size: 0.95em; /* Légère réduction de la taille de police dans l'autocomplete */
+        padding: 10px 12px; /* Réduction du padding dans l'autocomplete */
     }
 
 
     .categorie-section {
-        padding: 25px;
-        margin-bottom: 30px;
+        padding: 20px; /* Réduction du padding des sections de catégorie */
+        margin-bottom: 25px; /* Réduction de la marge basse des sections de catégorie */
+        border-radius: 18px; /* Ajustement du rayon de bordure des sections catégorie */
     }
 
     .categorie-section h3 {
-        font-size: 1.6em;
-        margin-bottom: 25px;
+        font-size: 1.5em; /* Légère réduction de la taille des titres de catégorie */
+        margin-bottom: 20px; /* Réduction de la marge basse des titres de catégorie */
     }
 
     .piece-item {
-        padding: 25px;
-        margin-bottom: 20px;
+        padding: 20px; /* Réduction du padding des items de pièce */
+        margin-bottom: 18px; /* Réduction de la marge basse des items de pièce */
+        border-radius: 18px; /* Ajustement du rayon de bordure des items pièce */
     }
 
     .piece-item h4 {
-        font-size: 1.35em;
-        margin-bottom: 10px;
+        font-size: 1.3em; /* Légère réduction de la taille des titres de pièce */
+        margin-bottom: 8px; /* Réduction de la marge basse des titres de pièce */
     }
 
     .piece-details, .piece-note {
-        font-size: 0.95em;
+        font-size: 0.90em; /* Légère réduction de la taille des détails et notes de pièce */
+    }
+
+    .piece-actions {
+        margin-top: 15px; /* Réduction de la marge haute des actions de pièce */
+        gap: 12px; /* Réduction de l'espace entre les boutons d'action de pièce */
+    }
+
+    .edit-form-container .input-group label,
+    .edit-form-container .input-group input,
+    .edit-form-container .input-group select,
+    .edit-form-container .input-group textarea {
+        font-size: 0.95em; /* Ajustement de la taille de police dans le formulaire d'édition */
+    }
+    .edit-form-actions {
+        gap: 10px; /* Réduction de l'espace entre les boutons d'action du formulaire d'édition */
     }
 }
 
