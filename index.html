@@ -12,27 +12,27 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header class="app-header">
-        <h1 class="app-title">DACAPO</h1>
+    <header>
+        <h1>DACAPO</h1>
     </header>
 
-    <main class="app-main">
-        <button id="ajouterPieceBtn" class="rounded-button primary-button animated-button">Ajouter une pièce</button>
+    <main>
+        <button id="ajouterPieceBtn" class="rounded-button">Ajouter une pièce</button>
 
-        <div id="formulairePiece" class="form-section" style="display: none;">
-            <h2 class="form-title">Ajouter une nouvelle pièce</h2>
+        <div id="formulairePiece" style="display: none;">
+            <h2>Ajouter une nouvelle pièce</h2>
             <form id="pieceForm">
                 <div class="form-group">
                     <label for="compositeur">Compositeur:</label>
-                    <input type="text" id="compositeur" name="compositeur" required class="form-input">
+                    <input type="text" id="compositeur" name="compositeur" required>
                 </div>
                 <div class="form-group">
                     <label for="titre">Titre:</label>
-                    <input type="text" id="titre" name="titre" required class="form-input">
+                    <input type="text" id="titre" name="titre" required>
                 </div>
                 <div class="form-group">
                     <label for="categorie">Catégorie:</label>
-                    <select id="categorie" name="categorie" required class="form-select">
+                    <select id="categorie" name="categorie" required>
                         <option value="Concerto">Concerto</option>
                         <option value="Sonate">Sonate</option>
                         <option value="Pièce solo">Pièce solo</option>
@@ -42,23 +42,21 @@
                 </div>
                 <div class="form-group">
                     <label for="notePersonnelle">Note personnelle:</label>
-                    <textarea id="notePersonnelle" name="notePersonnelle" class="form-textarea"></textarea>
+                    <textarea id="notePersonnelle" name="notePersonnelle"></textarea>
                 </div>
-                <div class="form-actions">
-                    <button type="submit" class="rounded-button primary-button animated-button">Ajouter</button>
-                    <button type="button" id="annulerBtn" class="rounded-button secondary-button animated-button">Annuler</button>
-                </div>
+                <button type="submit" class="rounded-button primary">Ajouter</button>
+                <button type="button" id="annulerBtn" class="rounded-button secondary">Annuler</button>
             </form>
         </div>
 
-        <section id="repertoire" class="repertoire-section">
-            <h2 class="section-title">Répertoire</h2>
-            <div id="repertoire-categories" class="repertoire-categories">
+        <section id="repertoire">
+            <h2>Répertoire</h2>
+            <div id="repertoire-categories">
                 </div>
         </section>
     </main>
 
-    <footer class="app-footer">
+    <footer>
         <p>&copy; 2024 DACAPO</p>
     </footer>
 
