@@ -1,548 +1,141 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(160deg, #e3f2fd 0%, #bbdefb 30%, #90caf9 70%, #64b5f6 100%); /* Dégradé bleu plus doux et moderne */
-    color: #343a40;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+/* Styles pour optimiser l'affichage sur iPhone 14 - VERSION TRÈS COMPACTE */
+@media screen and (max-width: 428px) { /* Ciblage précis iPhone 14 et écrans similaires/plus petits */
+    body {
+        font-size: 0.95em; /* Réduction légère de la taille de police de base du body */
+    }
 
-header {
-    background: rgba(255, 255, 255, 0.85); /* Fond header blanc semi-transparent */
-    backdrop-filter: blur(10px); /* Effet de verre semi-transparent */
-    padding: 45px 0 35px;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 50px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
-}
-
-header h1 {
-    color: #3f51b5; /* Bleu plus profond pour le titre */
-    font-weight: 700;
-    margin: 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    font-size: 3em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.header-subtitle {
-    color: #757575; /* Gris moyen pour le sous-titre */
-    font-size: 1.3em;
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-
-main {
-    width: 95%;
-    max-width: 800px;
-    padding: 45px 40px;
-    background-color: rgba(255, 255, 255, 0.95); /* Fond main blanc presque opaque */
-    border-radius: 30px; /* Bords encore plus arrondis */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    transition: background-color 0.4s ease; /* Transition pour le fond de main */
-}
-
-main:hover {
-    background-color: rgba(255, 255, 255, 1); /* Fond main plus opaque au survol */
-}
-
-
-h2 {
-    color: #3f51b5;
-    text-align: center;
-    margin-bottom: 40px;
-    width: 100%;
-    font-size: 2.5em;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: capitalize;
-}
-
-
-.rounded-button {
-    padding: 16px 40px;
-    border: none;
-    border-radius: 40px; /* Boutons ultra arrondis */
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.22);
-    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-    margin-bottom: 25px;
-    font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-}
-
-.rounded-button svg {
-    height: 1.2em;
-    width: 1.2em;
-    fill: white;
-}
-
-.rounded-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-}
-
-
-.primary-button {
-    background-color: #3f51b5; /* Bleu plus soutenu pour le bouton principal */
-}
-
-.secondary-button {
-    background-color: #7986cb; /* Bleu lavande plus clair */
-}
-
-.cancel-button {
-    background-color: #ef5350; /* Rouge plus vif pour annuler */
-}
-
-.edit-button, .delete-button, .save-button, .cancel-edit-button {
-    padding: 13px 25px;
-    font-size: 1.05em;
-    margin: 6px;
-    font-weight: 500;
-}
-
-.edit-button {
-    background-color: #66bb6a; /* Vert plus éclatant pour modifier */
-    color: white;
-}
-
-.delete-button {
-    background-color: #ef5350; /* Rouge vif pour supprimer */
-    color: white;
-}
-
-.save-button {
-    background-color: #4fc3f7; /* Bleu turquoise pour sauvegarder */
-    color: white;
-}
-
-.cancel-edit-button {
-    background-color: #ffa726; /* Orange plus chaud pour annuler édition */
-    color: white;
-}
-
-
-.form-container {
-    width: 100%;
-    margin-top: 40px;
-    padding: 35px;
-    background-color: rgba(255, 255, 255, 0.98); /* Fond formulaire presque opaque */
-    border-radius: 25px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    border: 1px solid #eee;
-    transition: box-shadow 0.4s ease; /* Transition pour l'ombre du formulaire */
-}
-
-.form-container:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Ombre formulaire plus marquée au survol */
-}
-
-
-.form-container h2 {
-    font-size: 2.2em;
-    margin-bottom: 35px;
-    color: #3f51b5;
-}
-
-
-.input-group {
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group label {
-    margin-bottom: 12px;
-    color: #495057;
-    font-weight: 500;
-    font-size: 1.15em;
-    display: block; /* Assure que le label prend toute la largeur */
-}
-
-.input-group input, .input-group select, .input-group textarea {
-    padding: 16px;
-    border: 2px solid #ddd;
-    border-radius: 20px; /* Inputs encore plus arrondis */
-    font-size: 1.15em;
-    font-family: 'Montserrat', sans-serif;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* Inputs prennent toute la largeur disponible */
-    box-sizing: border-box; /* Important pour le padding et la largeur */
-}
-
-
-.input-group input:focus, .input-group select:focus, .input-group textarea:focus {
-    border-color: #7986cb; /* Bordure lavande au focus */
-    outline: none;
-    box-shadow: 0 0 10px rgba(121, 134, 203, 0.4);
-}
-
-
-.input-group textarea {
-    resize: vertical;
-    min-height: 120px; /* Hauteur minimale pour le textarea */
-}
-
-
-/* Styles spécifiques pour l'autocomplete */
-.autocomplete {
-    position: relative; /* Important pour positionner la liste des suggestions */
-}
-
-.autocomplete-items {
-    position: absolute;
-    border: 1px solid #ddd;
-    border-top: none;
-    z-index: 10; /* S'assurer que la liste est au-dessus des autres éléments */
-    top: 100%;
-    left: 0;
-    right: 0;
-    border-radius: 0 0 15px 15px; /* Bord arrondi en bas */
-    overflow: hidden; /* Empêcher le dépassement du border-radius */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.autocomplete-items li {
-    padding: 14px 16px;
-    cursor: pointer;
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
-    font-size: 1.1em;
-    font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.2s ease;
-}
-
-.autocomplete-items li:last-child {
-    border-bottom: none; /* Pas de bordure sur le dernier élément */
-    border-radius: 0 0 15px 15px; /* Bord arrondi sur le dernier item */
-}
-
-
-.autocomplete-items li:hover {
-    background-color: #e0f7fa; /* Couleur au hover de l'autocomplete */
-}
-
-.autocomplete-items li.autocomplete-active {
-    background-color: #b2ebf2; /* Couleur pour l'élément actif (sélectionné) */
-    color: #263238; /* Changer la couleur du texte pour l'élément actif */
-}
-
-
-.form-actions {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-
-.repertoire-container {
-    width: 100%;
-    margin-top: 60px;
-}
-
-.categorie-section {
-    margin-bottom: 40px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.97); /* Fond section catégorie presque opaque */
-    border-radius: 25px;
-    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.1);
-    border: 1px solid #eee;
-    transition: box-shadow 0.35s ease, transform 0.2s ease-in-out;
-    overflow: hidden; /* Important pour le border-radius des items à l'intérieur */
-}
-
-.categorie-section:hover {
-    box-shadow: 0 9px 22px rgba(0, 0, 0, 0.14);
-    transform: translateY(-3px);
-}
-
-
-.categorie-section h3 {
-    color: #455a64; /* Gris bleu plus foncé pour les titres de catégorie */
-    border-bottom: 3px solid #e0e0e0;
-    padding-bottom: 16px;
-    margin-top: 0;
-    font-size: 1.9em;
-    font-weight: 600;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    text-align: left; /* Titres de catégorie alignés à gauche */
-}
-
-
-.piece-item {
-    background-color: rgba(255, 255, 255, 0.99); /* Fond item pièce très opaque */
-    padding: 30px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-    border: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow 0.3s ease, transform 0.2s ease-in-out;
-    overflow: hidden; /* Important pour le border-radius des éléments à l'intérieur */
-}
-
-.piece-item:hover {
-    transform: scale(1.015);
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.12);
-}
-
-
-.piece-item h4 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #495057;
-    font-size: 1.6em;
-    font-weight: 600;
-    line-height: 1.3; /* Amélioration de l'interligne pour le titre */
-}
-
-.piece-details {
-    font-size: 1.1em;
-    color: #6c757d;
-    margin-bottom: 18px;
-    line-height: 1.7;
-}
-
-.piece-details strong {
-    font-weight: 500; /* Légèrement gras pour "Compositeur" */
-    color: #546e7a; /* Gris bleu pour "Compositeur" */
-}
-
-
-.piece-note {
-    font-style: italic;
-    color: #777;
-    font-size: 1.05em;
-    border-top: 2px dashed #ddd;
-    padding-top: 18px;
-    margin-top: 18px;
-    line-height: 1.6;
-}
-
-.piece-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 25px;
-    gap: 20px;
-}
-
-
-/* Styles pour le formulaire d'édition de pièce (caché par défaut) */
-.piece-item .edit-form-container {
-    display: none;
-    margin-top: 30px;
-}
-
-.piece-item.editing .piece-details-view {
-    display: none;
-}
-
-.piece-item.editing .edit-form-container {
-    display: block;
-}
-
-.edit-form-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-.edit-form-container .input-group {
-    margin-bottom: 25px;
-}
-
-.edit-form-container .input-group label {
-    margin-bottom: 10px;
-    font-weight: 500;
-    color: #495057;
-    font-size: 1.1em;
-}
-
-.edit-form-container .input-group input, .edit-form-container .input-group select, .edit-form-container .input-group textarea {
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    font-size: 1em;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.edit-form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-
-footer {
-    text-align: center;
-    padding: 35px 0;
-    color: #777;
-    width: 100%;
-    background-color: #f8f9fa;
-    margin-top: auto;
-    font-size: 0.95em;
-    border-top: 1px solid #e0e0e0;
-    letter-spacing: 0.6px;
-}
-
-
-/* Animations plus dynamiques */
-.animated-button {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.animated-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.categorie-section {
-    animation: fadeIn 0.7s ease-out forwards;
-    opacity: 0;
-}
-
-.piece-item {
-    animation: fadeIn 0.9s ease-out forwards;
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-#formulairePiece {
-    animation: slideDown 0.6s ease-out forwards;
-    transform-origin: top center;
-}
-
-
-/* Styles pour optimiser l'affichage sur iPhone 14 */
-@media screen and (max-width: 428px) { /* Ciblage précis de l'iPhone 14 et écrans plus petits */
     header {
-        padding: 30px 0 20px; /* Réduction du padding haut */
-        margin-bottom: 30px; /* Réduction de la marge basse */
+        padding: 20px 0 15px; /* Réduction importante du padding du header */
+        margin-bottom: 20px; /* Réduction importante de la marge basse du header */
     }
 
     header h1 {
-        font-size: 2.4em; /* Légère réduction de la taille du titre */
+        font-size: 2.0em; /* Réduction plus marquée de la taille du titre */
     }
 
     .header-subtitle {
-        font-size: 1.15em; /* Légère réduction de la taille du sous-titre */
+        font-size: 1.0em; /* Réduction plus marquée du sous-titre */
+        margin-top: 5px; /* Réduction de la marge haute du sous-titre */
     }
 
     main {
-        padding: 25px 20px; /* Réduction du padding intérieur de main */
-        border-radius: 20px; /* Réduction légère du rayon de bordure de main */
-        margin-bottom: 40px; /* Réduction de la marge basse de main */
+        padding: 15px 12px; /* Réduction drastique du padding de main */
+        border-radius: 15px; /* Réduction du rayon de bordure de main */
+        margin-bottom: 30px; /* Réduction de la marge basse de main */
     }
 
     h2 {
-        font-size: 1.9em; /* Légère réduction de la taille des titres H2 */
-        margin-bottom: 28px; /* Ajustement de la marge basse des H2 */
+        font-size: 1.6em; /* Réduction significative des titres H2 */
+        margin-bottom: 20px; /* Réduction de la marge basse des H2 */
     }
 
     .rounded-button {
-        padding: 12px 28px; /* Réduction du padding des boutons */
-        font-size: 1.0em; /* Légère réduction de la taille de la police des boutons */
-        border-radius: 35px; /* Ajustement du rayon de bordure des boutons */
+        padding: 10px 20px; /* Réduction importante du padding des boutons */
+        font-size: 0.9em; /* Réduction plus marquée de la police des boutons */
+        border-radius: 30px; /* Ajustement du rayon de bordure des boutons */
+        margin-bottom: 15px; /* Réduction de la marge basse des boutons */
+    }
+
+    .rounded-button svg {
+        height: 0.9em; /* Ajustement de la taille des icônes dans les boutons */
+        width: 0.9em;
+    }
+
+    .input-group {
+        margin-bottom: 20px; /* Réduction de la marge basse des groupes d'input */
     }
 
     .input-group label {
-        font-size: 1.0em; /* Légère réduction de la taille des labels */
-        margin-bottom: 8px; /* Réduction de la marge basse des labels */
+        font-size: 0.9em; /* Réduction de la taille des labels */
+        margin-bottom: 6px; /* Réduction de la marge basse des labels */
     }
 
     .input-group input, .input-group select, .input-group textarea {
-        padding: 12px; /* Réduction du padding des inputs */
-        font-size: 1.0em; /* Légère réduction de la taille de la police des inputs */
-        border-radius: 15px; /* Ajustement du rayon de bordure des inputs */
+        padding: 10px; /* Réduction du padding des inputs */
+        font-size: 0.9em; /* Réduction de la police des inputs */
+        border-radius: 12px; /* Ajustement du rayon de bordure des inputs */
     }
 
     .autocomplete-items li {
-        font-size: 0.95em; /* Légère réduction de la taille de police dans l'autocomplete */
-        padding: 10px 12px; /* Réduction du padding dans l'autocomplete */
+        font-size: 0.85em; /* Réduction dans l'autocomplete */
+        padding: 8px 10px; /* Réduction du padding dans l'autocomplete */
+    }
+
+    .form-actions {
+        gap: 15px; /* Réduction de l'espace entre les boutons d'action du formulaire */
+        margin-top: 20px; /* Réduction de la marge haute des actions du formulaire */
     }
 
 
+    .repertoire-container {
+        margin-top: 40px; /* Réduction de la marge haute du répertoire */
+    }
+
     .categorie-section {
-        padding: 20px; /* Réduction du padding des sections de catégorie */
-        margin-bottom: 25px; /* Réduction de la marge basse des sections de catégorie */
-        border-radius: 18px; /* Ajustement du rayon de bordure des sections catégorie */
+        padding: 15px; /* Réduction importante du padding des sections catégorie */
+        margin-bottom: 20px; /* Réduction de la marge basse des sections catégorie */
+        border-radius: 12px; /* Ajustement du rayon de bordure des sections catégorie */
     }
 
     .categorie-section h3 {
-        font-size: 1.5em; /* Légère réduction de la taille des titres de catégorie */
-        margin-bottom: 20px; /* Réduction de la marge basse des titres de catégorie */
+        font-size: 1.3em; /* Réduction significative des titres de catégorie */
+        margin-bottom: 15px; /* Réduction de la marge basse des titres de catégorie */
+        padding-bottom: 10px; /* Réduction du padding bas des titres catégorie */
     }
 
     .piece-item {
-        padding: 20px; /* Réduction du padding des items de pièce */
-        margin-bottom: 18px; /* Réduction de la marge basse des items de pièce */
-        border-radius: 18px; /* Ajustement du rayon de bordure des items pièce */
+        padding: 15px; /* Réduction importante du padding des items pièce */
+        margin-bottom: 15px; /* Réduction de la marge basse des items pièce */
+        border-radius: 12px; /* Ajustement du rayon de bordure des items pièce */
     }
 
     .piece-item h4 {
-        font-size: 1.3em; /* Légère réduction de la taille des titres de pièce */
-        margin-bottom: 8px; /* Réduction de la marge basse des titres de pièce */
+        font-size: 1.15em; /* Réduction significative des titres de pièce */
+        margin-bottom: 5px; /* Réduction de la marge basse des titres de pièce */
     }
 
-    .piece-details, .piece-note {
-        font-size: 0.90em; /* Légère réduction de la taille des détails et notes de pièce */
+    .piece-details {
+        font-size: 0.85em; /* Réduction de la taille des détails de pièce */
+        margin-bottom: 12px; /* Réduction de la marge basse des détails de pièce */
+        line-height: 1.5; /* Ajustement de l'interligne des détails */
+    }
+
+    .piece-note {
+        font-size: 0.8em; /* Réduction de la taille des notes de pièce */
+        padding-top: 12px; /* Réduction du padding haut des notes */
+        margin-top: 12px; /* Réduction de la marge haute des notes */
+        line-height: 1.4; /* Ajustement de l'interligne des notes */
     }
 
     .piece-actions {
-        margin-top: 15px; /* Réduction de la marge haute des actions de pièce */
-        gap: 12px; /* Réduction de l'espace entre les boutons d'action de pièce */
+        margin-top: 12px; /* Réduction de la marge haute des actions de pièce */
+        gap: 10px; /* Réduction de l'espace entre les actions de pièce */
     }
 
-    .edit-form-container .input-group label,
+    .edit-form-container .input-group {
+        margin-bottom: 15px; /* Réduction de la marge basse des groupes d'input du formulaire d'édition */
+    }
+
+    .edit-form-container .input-group label {
+        font-size: 0.85em; /* Réduction de la taille des labels du formulaire d'édition */
+        margin-bottom: 5px; /* Réduction de la marge basse des labels du formulaire édition */
+    }
+
     .edit-form-container .input-group input,
     .edit-form-container .input-group select,
     .edit-form-container .input-group textarea {
-        font-size: 0.95em; /* Ajustement de la taille de police dans le formulaire d'édition */
+        font-size: 0.85em; /* Réduction de la police des inputs du formulaire édition */
+        padding: 10px; /* Réduction du padding des inputs du formulaire édition */
+        border-radius: 10px; /* Ajustement du rayon de bordure des inputs formulaire édition */
     }
+
     .edit-form-actions {
-        gap: 10px; /* Réduction de l'espace entre les boutons d'action du formulaire d'édition */
+        gap: 8px; /* Réduction de l'espace entre les actions du formulaire édition */
+        margin-top: 15px; /* Réduction de la marge haute des actions du formulaire édition */
+    }
+
+    footer {
+        padding: 25px 0; /* Réduction du padding du footer */
+        font-size: 0.85em; /* Réduction de la taille de police du footer */
     }
 }
-
-
-/* Icons from iconmonstr.com - License: Free */
-.icons-preload {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-  }
