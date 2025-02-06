@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     afficherRepertoire();
 
     ajouterPieceBtn.addEventListener('click', () => {
-        formulairePiece.classList.add('show'); // Ajout de la classe 'show' pour l'animation
-        ajouterPieceBtn.style.display = 'none';
+        formulairePiece.style.display = 'block';
+        ajouterPieceBtn.style.display = 'none'; // Cacher le bouton "Ajouter une pièce"
     });
 
     annulerBtn.addEventListener('click', () => {
-        formulairePiece.classList.remove('show'); // Retrait de la classe 'show' pour cacher
-        ajouterPieceBtn.style.display = 'block';
-        pieceForm.reset();
+        formulairePiece.style.display = 'none';
+        ajouterPieceBtn.style.display = 'block'; // Réafficher le bouton "Ajouter une pièce"
+        pieceForm.reset(); // Réinitialiser le formulaire
     });
 
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const notePersonnelle = document.getElementById('notePersonnelle').value;
 
         const nouvellePiece = {
-            id: Date.now(),
+            id: Date.now(), // ID unique basé sur le timestamp
             compositeur: compositeur,
             titre: titre,
             categorie: categorie,
@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sauvegarderRepertoire();
         afficherRepertoire();
 
-        formulairePiece.classList.remove('show'); // Cacher le formulaire après soumission
-        ajouterPieceBtn.style.display = 'block';
-        pieceForm.reset();
+        formulairePiece.style.display = 'none';
+        ajouterPieceBtn.style.display = 'block'; // Réafficher le bouton "Ajouter une pièce"
+        pieceForm.reset(); // Réinitialiser le formulaire
     });
 
     function sauvegarderRepertoire() {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function afficherRepertoire() {
-        repertoireCategoriesDiv.innerHTML = '';
+        repertoireCategoriesDiv.innerHTML = ''; // Vider l'affichage précédent
         const categories = ["Concerto", "Sonate", "Pièce solo", "Caprices/Etudes", "Technique"];
 
         categories.forEach(categorieNom => {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 piecesCategorie.forEach(piece => {
                     const pieceDiv = document.createElement('div');
                     pieceDiv.classList.add('piece-item');
-                    pieceDiv.dataset.pieceId = piece.id;
+                    pieceDiv.dataset.pieceId = piece.id; // Stocker l'ID de la pièce
 
                     const pieceInfoDiv = document.createElement('div');
                     pieceInfoDiv.classList.add('piece-info');
@@ -87,14 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const modifierNoteBtn = document.createElement('button');
                     modifierNoteBtn.textContent = 'Modifier Note';
-                    modifierNoteBtn.classList.add('rounded-button', 'secondary-button', 'animated-button');
-                    modifierNoteBtn.addEventListener('click', () => afficherFormulaireNote(piece.id));
+                    modifierNoteBtn.classList.add('rounded-button', 'secondary');
+                    modifierNoteBtn.addEventListener('click', () => afficherFormulaireNote(piece.id)); // Passer l'ID
                     pieceActionsDiv.appendChild(modifierNoteBtn);
 
                     const supprimerNoteBtn = document.createElement('button');
                     supprimerNoteBtn.textContent = 'Supprimer Note';
-                    supprimerNoteBtn.classList.add('rounded-button', 'secondary-button', 'animated-button');
-                    supprimerNoteBtn.addEventListener('click', () => supprimerNote(piece.id));
+                    supprimerNoteBtn.classList.add('rounded-button', 'secondary');
+                    supprimerNoteBtn.addEventListener('click', () => supprimerNote(piece.id)); // Passer l'ID
                     pieceActionsDiv.appendChild(supprimerNoteBtn);
 
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function afficherFormulaireNote(pieceId) {
         const pieceDiv = document.querySelector(`.piece-item[data-piece-id="${pieceId}"]`);
         let notePersoElt = pieceDiv.querySelector('.note');
-        let noteActuelle = notePersoElt ? notePersoElt.textContent.substring(6) : "";
+        let noteActuelle = notePersoElt ? notePersoElt.textContent.substring(6) : ""; //récupérer la note sans "Note : "
 
         const formulaireNoteHTML = `
             <div id="formulaireNoteOverlay" class="form-overlay">
@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>Modifier la note personnelle</h3>
                     <textarea id="notePersoModif">${noteActuelle}</textarea>
                     <div class="form-actions">
-                        <button id="sauvegarderNoteBtn" class="rounded-button primary-button animated-button">Sauvegarder</button>
-                        <button id="annulerNoteBtn" class="rounded-button secondary-button animated-button">Annuler</button>
+                        <button id="sauvegarderNoteBtn" class="rounded-button primary">Sauvegarder</button>
+                        <button id="annulerNoteBtn" class="rounded-button secondary">Annuler</button>
                     </div>
                 </div>
             </div>
@@ -132,13 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         annulerNoteBtn.addEventListener('click', () => {
-            formulaireNoteOverlay.remove();
+            formulaireNoteOverlay.remove(); // Supprimer l'overlay
         });
 
         sauvegarderNoteBtn.addEventListener('click', () => {
             const nouvelleNote = notePersoModifTextarea.value;
             modifierNotePerso(pieceId, nouvelleNote);
-            formulaireNoteOverlay.remove();
+            formulaireNoteOverlay.remove(); // Supprimer l'overlay
         });
 
          // Gestion de la fermeture du formulaire overlay en cliquant en dehors
@@ -155,12 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pieceIndex !== -1) {
             repertoire[pieceIndex].notePersonnelle = nouvelleNote;
             sauvegarderRepertoire();
-            afficherRepertoire();
+            afficherRepertoire(); // Re-afficher le répertoire pour mettre à jour l'affichage
         }
     }
 
     function supprimerNote(pieceId) {
-        modifierNotePerso(pieceId, "");
+        modifierNotePerso(pieceId, ""); // Modifier la note personnelle pour la supprimer (mettre vide)
     }
 
 
