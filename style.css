@@ -1,141 +1,571 @@
-/* Styles pour optimiser l'affichage sur iPhone 14 - VERSION TRÈS COMPACTE */
-@media screen and (max-width: 428px) { /* Ciblage précis iPhone 14 et écrans similaires/plus petits */
+/* Style général de l'application */
+.app-container {
+    font-family: 'Outfit', sans-serif; /* Police moderne et géométrique */
+    background: linear-gradient(140deg, #e0e7ff, #c2d1ff, #a3bbff, #85a5ff); /* Dégradé bleu/violet dynamique */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+/* Header de l'application */
+.app-header {
+    background: rgba(255, 255, 255, 0.9); /* Blanc semi-transparent pour le header */
+    backdrop-filter: blur(8px); /* Effet de flou "glassmorphism" */
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.header-content {
+    max-width: 800px; /* Largeur max du contenu du header */
+    margin: 0 auto;
+}
+
+.app-title {
+    color: #4a148c; /* Violet profond pour le titre */
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: -1px; /* Rapprochement des lettres pour un style moderne */
+}
+
+.app-subtitle {
+    color: #777; /* Gris moyen pour le sous-titre */
+    font-family: 'Fira Sans', sans-serif; /* Police secondaire plus douce */
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+/* Main content */
+.app-main {
+    width: 95%;
+    max-width: 800px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.98); /* Blanc très légèrement transparent pour le main */
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Section Répertoire */
+.repertoire-section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed #ddd;
+}
+
+.section-title {
+    color: #4a148c; /* Violet profond pour les titres de section */
+    font-size: 2em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.add-piece-button {
+    background-color: #6a1b9a; /* Violet plus foncé pour le bouton "Ajouter" */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-piece-button:hover {
+    background-color: #7b1fa2; /* Violet encore plus foncé au hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.add-piece-button svg {
+    height: 1em;
+    width: 1em;
+    fill: white;
+}
+
+/* Conteneur des catégories */
+.categories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espace entre les catégories */
+}
+
+/* Section Catégorie */
+.categorie-section {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanc légèrement transparent pour les sections catégorie */
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.categorie-section:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+.categorie-section-title {
+    color: #673ab7; /* Violet moyen pour les titres de catégorie */
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Item Pièce */
+.piece-item {
+    background-color: rgba(255, 255, 255, 0.98); /* Blanc très légèrement transparent pour les items pièce */
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.piece-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.005);
+}
+
+.piece-composer {
+    color: #5e35b1; /* Violet plus clair pour le compositeur (titre) */
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.piece-title {
+    color: #777; /* Gris moyen pour le titre de la pièce */
+    font-family: 'Fira Sans', sans-serif; /* Police secondaire pour le titre de la pièce */
+    font-size: 1.05em;
+    margin-bottom: 12px;
+}
+
+.piece-note {
+    font-style: italic;
+    color: #888; /* Gris un peu plus foncé pour la note */
+    font-size: 0.95em;
+    border-top: 1px dashed #ddd;
+    padding-top: 12px;
+    margin-top: 12px;
+    line-height: 1.5;
+}
+
+.piece-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+}
+
+.action-button svg {
+    height: 0.9em;
+    width: 0.9em;
+    fill: white;
+}
+
+.action-button.primary {
+    background-color: #4a148c; /* Violet profond pour les actions primaires */
+}
+
+.action-button.primary:hover {
+    background-color: #5e35b1; /* Violet plus clair au hover */
+    transform: translateY(-1px);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.secondary {
+    background-color: #7e57c2; /* Violet moyen pour les actions secondaires */
+}
+
+.action-button.secondary:hover {
+    background-color: #9575cd; /* Violet plus clair au hover */
+    transform: translateY(-1px);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+}
+
+.action-button.edit-button {
+    background-color: #4caf50; /* Vert pour "Modifier" */
+}
+
+.action-button.edit-button:hover {
+    background-color: #66bb6a;
+}
+
+.action-button.delete-button {
+    background-color: #f44336; /* Rouge pour "Supprimer" */
+}
+
+.action-button.delete-button:hover {
+    background-color: #e57373;
+}
+
+.action-button.save-button {
+    background-color: #03a9f4; /* Bleu clair pour "Sauvegarder" */
+}
+
+.action-button.save-button:hover {
+    background-color: #29b6f6;
+}
+
+.action-button.cancel-edit-button {
+    background-color: #ff9800; /* Orange pour "Annuler édition" */
+}
+
+.action-button.cancel-edit-button:hover {
+    background-color: #ffa726;
+}
+
+
+/* Formulaire d'ajout/édition (overlay) */
+.form-overlay {
+    position: fixed; /* Overlay fixe sur toute la fenêtre */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir pour l'overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* S'assurer que l'overlay est au-dessus de tout */
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.99); /* Blanc presque opaque pour le conteneur du formulaire */
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Largeur du formulaire sur mobile */
+    max-width: 600px; /* Largeur max du formulaire sur écrans plus grands */
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    color: #4a148c; /* Violet profond pour le titre du formulaire */
+    font-size: 2.2em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.piece-form .input-group {
+    margin-bottom: 25px;
+}
+
+.piece-form .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-family: 'Fira Sans', sans-serif; /* Police secondaire pour les labels de formulaire */
+}
+
+.piece-form .input-group input,
+.piece-form .input-group select,
+.piece-form .input-group textarea {
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    font-size: 1em;
+    font-family: 'Outfit', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.piece-form .input-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.piece-form .input-group input:focus,
+.piece-form .input-group select:focus,
+.piece-form .input-group textarea:focus {
+    border-color: #673ab7; /* Violet moyen au focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(103, 58, 183, 0.3);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+
+/* Styles pour l'autocomplete (réutilisés) */
+.autocomplete {
+    position: relative;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #ddd;
+    border-top: none;
+    z-index: 11; /* Au-dessus du formulaire */
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-items li {
+    padding: 12px 16px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95em;
+    font-family: 'Outfit', sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.autocomplete-items li:last-child {
+    border-bottom: none;
+    border-radius: 0 0 15px 15px;
+}
+
+.autocomplete-items li:hover {
+    background-color: #f3f3f3; /* Gris très clair au hover */
+}
+
+.autocomplete-items li.autocomplete-active {
+    background-color: #e0e0e0; /* Gris clair pour l'item actif */
+    color: #333;
+}
+
+
+/* Footer de l'application */
+.app-footer {
+    text-align: center;
+    padding: 25px 0;
+    color: #aaa; /* Gris clair pour le footer */
+    width: 100%;
+    margin-top: auto;
+    font-size: 0.85em;
+    border-top: 1px solid #eee;
+}
+
+.footer-text {
+    margin: 0;
+}
+
+
+/* Animations */
+.animated-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+.animated-form {
+    animation: slideDownForm 0.5s ease-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes slideDownForm {
+    from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.categorie-section {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.piece-item {
+    animation: fadeIn 0.7s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+
+/* Optimisations iPhone 14 (et mobile) - VERSION MODERNE & COMPACTE */
+@media screen and (max-width: 428px) {
     body {
-        font-size: 0.95em; /* Réduction légère de la taille de police de base du body */
+        font-size: 0.9rem; /* Taille de police de base légèrement réduite pour mobile */
     }
 
-    header {
-        padding: 20px 0 15px; /* Réduction importante du padding du header */
-        margin-bottom: 20px; /* Réduction importante de la marge basse du header */
+    .app-header {
+        padding: 20px 15px;
+        margin-bottom: 30px;
     }
 
-    header h1 {
-        font-size: 2.0em; /* Réduction plus marquée de la taille du titre */
+    .app-title {
+        font-size: 2.2rem; /* Titre plus petit sur mobile */
     }
 
-    .header-subtitle {
-        font-size: 1.0em; /* Réduction plus marquée du sous-titre */
-        margin-top: 5px; /* Réduction de la marge haute du sous-titre */
+    .app-subtitle {
+        font-size: 1rem; /* Sous-titre plus petit sur mobile */
     }
 
-    main {
-        padding: 15px 12px; /* Réduction drastique du padding de main */
-        border-radius: 15px; /* Réduction du rayon de bordure de main */
-        margin-bottom: 30px; /* Réduction de la marge basse de main */
+    .app-main {
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 40px;
     }
 
-    h2 {
-        font-size: 1.6em; /* Réduction significative des titres H2 */
-        margin-bottom: 20px; /* Réduction de la marge basse des H2 */
+    .section-header {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
     }
 
-    .rounded-button {
-        padding: 10px 20px; /* Réduction importante du padding des boutons */
-        font-size: 0.9em; /* Réduction plus marquée de la police des boutons */
-        border-radius: 30px; /* Ajustement du rayon de bordure des boutons */
-        margin-bottom: 15px; /* Réduction de la marge basse des boutons */
+    .section-title {
+        font-size: 1.7rem; /* Titres de section plus petits sur mobile */
     }
 
-    .rounded-button svg {
-        height: 0.9em; /* Ajustement de la taille des icônes dans les boutons */
-        width: 0.9em;
-    }
-
-    .input-group {
-        margin-bottom: 20px; /* Réduction de la marge basse des groupes d'input */
-    }
-
-    .input-group label {
-        font-size: 0.9em; /* Réduction de la taille des labels */
-        margin-bottom: 6px; /* Réduction de la marge basse des labels */
-    }
-
-    .input-group input, .input-group select, .input-group textarea {
-        padding: 10px; /* Réduction du padding des inputs */
-        font-size: 0.9em; /* Réduction de la police des inputs */
-        border-radius: 12px; /* Ajustement du rayon de bordure des inputs */
-    }
-
-    .autocomplete-items li {
-        font-size: 0.85em; /* Réduction dans l'autocomplete */
-        padding: 8px 10px; /* Réduction du padding dans l'autocomplete */
-    }
-
-    .form-actions {
-        gap: 15px; /* Réduction de l'espace entre les boutons d'action du formulaire */
-        margin-top: 20px; /* Réduction de la marge haute des actions du formulaire */
-    }
-
-
-    .repertoire-container {
-        margin-top: 40px; /* Réduction de la marge haute du répertoire */
+    .add-piece-button {
+        padding: 10px 20px;
+        font-size: 0.9rem; /* Bouton "Ajouter" plus petit sur mobile */
+        border-radius: 20px;
     }
 
     .categorie-section {
-        padding: 15px; /* Réduction importante du padding des sections catégorie */
-        margin-bottom: 20px; /* Réduction de la marge basse des sections catégorie */
-        border-radius: 12px; /* Ajustement du rayon de bordure des sections catégorie */
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
     }
 
-    .categorie-section h3 {
-        font-size: 1.3em; /* Réduction significative des titres de catégorie */
-        margin-bottom: 15px; /* Réduction de la marge basse des titres de catégorie */
-        padding-bottom: 10px; /* Réduction du padding bas des titres catégorie */
+    .categorie-section-title {
+        font-size: 1.4rem; /* Titres de catégorie plus petits sur mobile */
+        margin-bottom: 15px;
+        padding-bottom: 8px;
     }
 
     .piece-item {
-        padding: 15px; /* Réduction importante du padding des items pièce */
-        margin-bottom: 15px; /* Réduction de la marge basse des items pièce */
-        border-radius: 12px; /* Ajustement du rayon de bordure des items pièce */
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 12px;
     }
 
-    .piece-item h4 {
-        font-size: 1.15em; /* Réduction significative des titres de pièce */
-        margin-bottom: 5px; /* Réduction de la marge basse des titres de pièce */
+    .piece-composer {
+        font-size: 1.15rem; /* Titres de pièce (compositeur) plus petits sur mobile */
+        margin-bottom: 6px;
     }
 
-    .piece-details {
-        font-size: 0.85em; /* Réduction de la taille des détails de pièce */
-        margin-bottom: 12px; /* Réduction de la marge basse des détails de pièce */
-        line-height: 1.5; /* Ajustement de l'interligne des détails */
+    .piece-title {
+        font-size: 0.95rem; /* Titres de pièce (titre) plus petits sur mobile */
+        margin-bottom: 10px;
     }
 
     .piece-note {
-        font-size: 0.8em; /* Réduction de la taille des notes de pièce */
-        padding-top: 12px; /* Réduction du padding haut des notes */
-        margin-top: 12px; /* Réduction de la marge haute des notes */
-        line-height: 1.4; /* Ajustement de l'interligne des notes */
+        font-size: 0.9rem; /* Notes de pièce plus petites sur mobile */
+        padding-top: 10px;
+        margin-top: 10px;
     }
 
-    .piece-actions {
-        margin-top: 12px; /* Réduction de la marge haute des actions de pièce */
-        gap: 10px; /* Réduction de l'espace entre les actions de pièce */
+    .action-button {
+        padding: 7px 12px;
+        font-size: 0.85rem; /* Boutons d'action plus petits sur mobile */
+        border-radius: 18px;
     }
 
-    .edit-form-container .input-group {
-        margin-bottom: 15px; /* Réduction de la marge basse des groupes d'input du formulaire d'édition */
+    .form-container {
+        padding: 25px;
+        border-radius: 20px;
     }
 
-    .edit-form-container .input-group label {
-        font-size: 0.85em; /* Réduction de la taille des labels du formulaire d'édition */
-        margin-bottom: 5px; /* Réduction de la marge basse des labels du formulaire édition */
+    .form-header {
+        margin-bottom: 25px;
     }
 
-    .edit-form-container .input-group input,
-    .edit-form-container .input-group select,
-    .edit-form-container .input-group textarea {
-        font-size: 0.85em; /* Réduction de la police des inputs du formulaire édition */
-        padding: 10px; /* Réduction du padding des inputs du formulaire édition */
-        border-radius: 10px; /* Ajustement du rayon de bordure des inputs formulaire édition */
+    .form-header h2 {
+        font-size: 1.9rem; /* Titre du formulaire plus petit sur mobile */
     }
 
-    .edit-form-actions {
-        gap: 8px; /* Réduction de l'espace entre les actions du formulaire édition */
-        margin-top: 15px; /* Réduction de la marge haute des actions du formulaire édition */
+    .piece-form .input-group {
+        margin-bottom: 20px;
     }
 
-    footer {
-        padding: 25px 0; /* Réduction du padding du footer */
-        font-size: 0.85em; /* Réduction de la taille de police du footer */
+    .piece-form .input-group label {
+        font-size: 0.9rem; /* Labels de formulaire plus petits sur mobile */
+        margin-bottom: 6px;
     }
+
+    .piece-form .input-group input,
+    .piece-form .input-group select,
+    .piece-form .input-group textarea {
+        padding: 12px;
+        font-size: 0.9rem; /* Inputs de formulaire plus petits sur mobile */
+        border-radius: 12px;
+    }
+
+    .autocomplete-items li {
+        font-size: 0.85rem; /* Autocomplete plus petit sur mobile */
+        padding: 10px 12px;
+    }
+
+    .form-actions {
+        margin-top: 25px;
+        gap: 20px;
+    }
+
+    .app-footer {
+        padding: 20px 0;
+        font-size: 0.8rem; /* Footer plus petit sur mobile */
+    }
+}
+
+
+/* Icons from iconmonstr.com - License: Free */
+.icons-preload {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
 }
